@@ -1,0 +1,40 @@
+レスポンシブデザインをCSSで実現するための要素
+
+※必須
+最初にブラウザの拡大縮小機能をオフにするためにhead要素の下に以下の要素を追加
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
+各要素のスタイルを「メディアタイプ」に対してそれぞれ別に設定する
+その1）CSSファイルを呼び分ける場合
+<link rel="stylesheet" href="mobile.css" type="text/css" media="screen and (max-width: 899px)">
+<link rel="stylesheet" href="pc.css" type="text/css" media="screen and (min-width: 900px)">
+
+その2）1つのCSSファイルの中でそれぞれのメディアに対する設定を記述する場合に「メディアクエリ」を使用する
+@media screen and (min-width:951px) {
+/*pc用のcssを記述*/
+}
+@media only screen and (min-width:326px) and (max-width:950px) {
+/*tablet用のcssを記述*/
+}
+
+@media screen and (max-width:570px) {
+※メディアクエリに使用できる条件指定：
+・横指定
+min-width:{n}px
+max-width:{n}px
+
+・縦指定
+min-height:{n}px
+max-height:{n}px
+
+・デバイスの横向き・縦向き指定
+orientation: portrait	... 画面が縦向き（縦の方が長い）
+orientation: landscape	... 画面が横向き（横の方が長い）
+
+※メニューのハンバーガーボタンへの切り替え
+1)HTMLではメニューとハンバーガーボタンの両方の要素を設置しておく
+2)CSSでPC表示時にdisplay:noneを使ってハンバーガーボタンを非表示にする
+3)クリックされたときの挙動をJavascriptなどを使って定義する
+
+id(entification) ... 識別（主にJavascriptで使用）
+class(ification) ... 分類（主にCSSで使用）
